@@ -1,52 +1,52 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { selectActiveFilter } from "../redux/selectors/filterSelector.js";
+import { setFilter } from "../redux/actionCreators/filterCreators.js";
 
 const Filter = () => {
-  const { filter: activeFilter = "all" } = useParams();
+  const dispatch = useDispatch();
+  const filter = useSelector(selectActiveFilter);
   return (
     <div className="filter">
-      <Link to="/all">
-        <button
-          className="btn btn-filter"
-          style={{
-            color:
-              activeFilter === "all"
-                ? "var(--bright-blue"
-                : "var(--dark-grayish-blue)",
-            cursor: "pointer",
-          }}
-        >
-          All
-        </button>
-      </Link>
-      <Link to="/active">
-        <button
-          className="btn btn-filter"
-          style={{
-            color:
-              activeFilter === "active"
-                ? "var(--bright-blue"
-                : "var(--dark-grayish-blue)",
-            cursor: "pointer",
-          }}
-        >
-          Active
-        </button>
-      </Link>
-      <Link to="/completed">
-        <button
-          className="btn btn-filter"
-          style={{
-            color:
-              activeFilter === "completed"
-                ? "var(--bright-blue"
-                : "var(--dark-grayish-blue)",
-            cursor: "pointer",
-          }}
-        >
-          Completed
-        </button>
-      </Link>
+      <button
+        onClick={() => dispatch(setFilter("all"))}
+        className="btn btn-filter"
+        style={{
+          color:
+            filter === "all" ? "var(--bright-blue" : "var(--dark-grayish-blue)",
+          cursor: "pointer",
+        }}
+      >
+        All
+      </button>
+
+      <button
+        onClick={() => dispatch(setFilter("active"))}
+        className="btn btn-filter"
+        style={{
+          color:
+            filter === "active"
+              ? "var(--bright-blue"
+              : "var(--dark-grayish-blue)",
+          cursor: "pointer",
+        }}
+      >
+        Active
+      </button>
+
+      <button
+        onClick={() => dispatch(setFilter("completed"))}
+        className="btn btn-filter"
+        style={{
+          color:
+            filter === "completed"
+              ? "var(--bright-blue"
+              : "var(--dark-grayish-blue)",
+          cursor: "pointer",
+        }}
+      >
+        Completed
+      </button>
     </div>
   );
 };
