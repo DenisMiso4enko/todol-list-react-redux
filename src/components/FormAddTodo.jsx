@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo } from "../redux/actionCreators/todoActions";
+import {addTodo, setTodos} from "../redux/actionCreators/todoActions";
 
 const FormAddTodo = () => {
   const theme = useSelector((state) => state.theme);
@@ -14,6 +14,9 @@ const FormAddTodo = () => {
       setTitle("");
     }
   };
+
+
+
   return (
     <form className={`form-add form-add--${theme}`} onSubmit={handleAddTodo}>
       <input

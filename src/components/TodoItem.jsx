@@ -1,8 +1,10 @@
 import { deleteTodo, toggleTodo } from "../redux/actionCreators/todoActions";
 import { useDispatch, useSelector } from "react-redux";
 import { IoCloseSharp } from "react-icons/io5";
+import { Reorder } from "framer-motion"
 
-const TodoItem = ({ id, title, done }) => {
+
+const TodoItem = (todo) => {
   const theme = useSelector((state) => state.theme);
   const dispatch = useDispatch();
 
@@ -14,21 +16,21 @@ const TodoItem = ({ id, title, done }) => {
     dispatch(toggleTodo(id));
   };
   return (
-    <li className={`todo-list__item todo-list__item--${theme}`}>
+    <Reorder.Item key={todo} value={todo} className={`todo-list__item todo-list__item--${theme}`}>
       <label className="check-label">
         <input
           className="check"
           type="checkbox"
-          checked={done}
-          onChange={() => handleToggleTodo(id)}
+          checked={todo.done}
+          onChange={() => handleToggleTodo(todo.id)}
         />
         <span className="fake"></span>
       </label>
-      <p className={`todo-title ${done ? "decore" : ""}`}>{title}</p>
-      <button className="btn btn-delete" onClick={() => handleDeleteTodo(id)}>
+      <p className={`todo-title ${todo.done ? "decore" : ""}`}>{todo.title}</p>
+      <button className="btn btn-delete" onClick={() => handleDeleteTodo(todo.id)}>
         <IoCloseSharp />
       </button>
-    </li>
+    </Reorder.Item>
   );
 };
 

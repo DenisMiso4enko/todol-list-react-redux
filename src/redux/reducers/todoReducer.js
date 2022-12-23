@@ -3,6 +3,7 @@ import {
   DELETE_TODO,
   TOGGLE_TODO,
   DELETE_COMPLETED_TODO,
+  SET_TODOS
 } from "../actionTypes/todoTypes";
 
 export const todoReducer = (state = [], action) => {
@@ -30,7 +31,11 @@ export const todoReducer = (state = [], action) => {
     case DELETE_COMPLETED_TODO: {
       return state.filter((todo) => todo.done === false);
     }
+    case SET_TODOS: {
+      const { newTodos } = action;
+      return [...state, newTodos]
 
+    }
     default:
       return state;
   }
