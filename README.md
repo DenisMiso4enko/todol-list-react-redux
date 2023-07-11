@@ -1,11 +1,14 @@
 # todol-list-react-redux
 
-Проект с сайта frontendmentor.io, приложение Список дел. Стек - React, TypeScript, Redux. Основной функционал: 
+##Demo: https://todol-list-react-redux.vercel.app
+
+Проект с сайта frontendmentor.io, приложение Список дел. Стек - React, Redux. Основной функционал: 
  - Добавление, удаление, редактирование задачи
  - Фильтры задач
  - Смена темы
  - Сохранение данных в LocalStorage
 
-#Скрипты
-npm i - установка зависимостей
-npm run dev - запуск локального сервера
+## Скрипты
+
+Установка модулей `npm install`
+Запуск дев-сервера `npm run dev`
