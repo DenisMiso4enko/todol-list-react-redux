@@ -1,21 +1,19 @@
-import React from "react";
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {addTodo, setTodos} from "../redux/actionCreators/todoActions";
+import React from 'react'
+import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { addTodo } from '../redux/actionCreators/todoActions'
 
 const FormAddTodo = () => {
-  const theme = useSelector((state) => state.theme);
-  const [title, setTitle] = useState("");
-  const dispatch = useDispatch();
+  const theme = useSelector((state) => state.theme)
+  const [title, setTitle] = useState('')
+  const dispatch = useDispatch()
   const handleAddTodo = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (title.trim()) {
-      dispatch(addTodo(title));
-      setTitle("");
+      dispatch(addTodo(title))
+      setTitle('')
     }
-  };
-
-
+  }
 
   return (
     <form className={`form-add form-add--${theme}`} onSubmit={handleAddTodo}>
@@ -27,7 +25,7 @@ const FormAddTodo = () => {
         onChange={(e) => setTitle(e.target.value)}
       />
     </form>
-  );
-};
+  )
+}
 
-export default FormAddTodo;
+export default FormAddTodo

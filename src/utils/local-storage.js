@@ -1,24 +1,21 @@
-
-
 export const loadState = () => {
   try {
-    const savedState = localStorage.getItem("state");
+    const savedState = localStorage.getItem('state')
     if (savedState === null) {
-      return undefined;
+      return undefined
     }
 
-    return JSON.parse(savedState);
+    return JSON.parse(savedState)
   } catch (error) {
-    return undefined;
+    return undefined
   }
-};
-
+}
 
 export const savedState = (state) => {
-    try {
-        const stateToBeSaved = JSON.stringify(state)
-        localStorage.setItem('state', stateToBeSaved)
-    } catch (error) {
-        console.error(error);
-    }
+  try {
+    const stateToBeSaved = JSON.stringify(state)
+    localStorage.setItem('state', stateToBeSaved)
+  } catch (error) {
+    console.error(error)
+  }
 }

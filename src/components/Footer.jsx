@@ -1,15 +1,15 @@
-import React from "react";
-import Filter from "./Filter";
-import ItemsLeft from "./ItemsLeft";
-import { useDispatch, useSelector } from "react-redux";
-import { deleteCompletedTodo } from "../redux/actionCreators/todoActions";
+import React from 'react'
+import Filter from './Filter'
+import ItemsLeft from './ItemsLeft'
+import { useDispatch, useSelector } from 'react-redux'
+import { deleteCompletedTodo } from '../redux/actionCreators/todoActions'
 
 const Footer = () => {
-  const theme = useSelector((state) => state.theme);
-  const dispatch = useDispatch();
+  const theme = useSelector((state) => state.theme)
+  const dispatch = useDispatch()
   const handleDeleteCompletedTodos = () => {
-    dispatch(deleteCompletedTodo());
-  };
+    dispatch(deleteCompletedTodo())
+  }
   return (
     <footer className={`footer footer--${theme}`}>
       <ItemsLeft />
@@ -18,7 +18,7 @@ const Footer = () => {
         Clear completed
       </button>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer
